@@ -62,6 +62,8 @@ function modules() {
         .pipe(gulp.dest('./vendor/chartjs-plugin-colorschemes'));
     var chartJS_datalabels = gulp.src('./node_modules/chartjs-plugin-datalabels/dist/*.js')
         .pipe(gulp.dest('./vendor/chartjs-plugin-datalabels'));
+    var chartJS_annotation = gulp.src('./node_modules/chartjs-plugin-annotation/*.js')
+        .pipe(gulp.dest('./vendor/chartjs-plugin-annotation'));
     // dataTables
     var dataTables = gulp.src([
         './node_modules/datatables.net/js/*.js',
@@ -81,7 +83,10 @@ function modules() {
         '!./node_modules/jquery/dist/core.js'
     ])
         .pipe(gulp.dest('./vendor/jquery'));
-    return merge(bootstrapJS, bootstrapSCSS, chartJS, chartJS_colorschemes, chartJS_datalabels, dataTables, fontAwesome, jquery, jqueryEasing);
+    return merge(
+        bootstrapJS, bootstrapSCSS, chartJS, chartJS_colorschemes,
+        chartJS_datalabels, chartJS_annotation, dataTables, fontAwesome, jquery, jqueryEasing
+    );
 }
 
 // CSS task
